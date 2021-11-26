@@ -1,4 +1,5 @@
-Installation steps of Jenkins:  on centos or amazon linux 
+INSTALLATION STEPS OF JENKINS : AMAZON LINUX OR CENTOS
+-------------------------------------------------------
 
 https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
 
@@ -19,31 +20,85 @@ sudo systemctl start jenkins
 sudo systemctl status jenkins
 cat /var/lib/jenkins/secrets/initialAdminPassword
 
-
-->install git 
+->INSTALL GIT IN JENKINS VM
+-----------------------------
 yum install git -y
 
 which git 
 /usr/bin/git
 
-->Add this details in jenkins UI 
-Global tool configurations add git path and java path 
+ADD JAVA AND GIT PATH IN JENKINS UI : 
+-----------------------------------
+MANAGE JENKINS ---> Global tool configurations 
 
-which java
-which git 
-java -version
+Add git path and java path in jenkins uI --->check paths in console of jenkins vm using 
 
-JAVA PATH:
+which java                         # WHERE JAVA INSTALLED
+/usr/bin/java
+which git                          # WHERE GIT INSTALLED
+/usr/bin/git
+
+java -version                      # JAVA VERSION
+openjdk version "1.8.0_302"
+OpenJDK Runtime Environment (build 1.8.0_302-b08)
+OpenJDK 64-Bit Server VM (build 25.302-b08, mixed mode)
+
+CHECK JAVA PATH AND GIT PATH:
+-----------------------------
 https://stackoverflow.com/questions/33104982/how-to-get-java-path-in-centos
 
 readlink -f $(which java)
 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64/jre/bin/java
 
-PATH NEED TO GIVE IN JENKINS
+PATH NEED TO GIVE IN JENKINS AND GIT
 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64/
 
-GIT PATH:
+which git
 /usr/bin/git
+
+
+
+PIPELINE JOB CONFIGURATION:
+--------------------------
+Tick This project is parameterized --> 	 Git Parameter  plugin
+Goto manage jenkins --> manage plugins --> 	Git Parameter (https://plugins.jenkins.io/git-parameter)
+
+Adds ability to choose branches, tags or revisions from git repositories configured in project.
+
+General
+-------
+select -> This project is parameterised  -> Git parameter 
+name: iqoo7
+parameter type : branch
+Default Value: origin/master
+select: Quick Filter
+
+
+PIPELINE STAGE:
+---------------
+pipeline scritpt from scm
+scm: git
+repo url: https://github.com/vinodkumar501/Jenkinsfile-setup-repo.git
+credentials: admin/admin  ( username/password )
+
+BRANCHES TO BUILD STAGE:
+------------------------
+default is */master
+update to ${iqoo7}    # which we gave same in General --> project is parameterised
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 --------
 Error1:
