@@ -27,6 +27,9 @@ yum install git -y
 which git 
 /usr/bin/git
 
+git --version
+git version 2.32.0
+
 ADD JAVA AND GIT PATH IN JENKINS UI : 
 -----------------------------------
 MANAGE JENKINS ---> Global tool configurations 
@@ -53,9 +56,34 @@ readlink -f $(which java)
 PATH NEED TO GIVE IN JENKINS AND GIT
 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64/
 
+check:
+cd /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64/
+
+[root@ip-172-31-87-38 java-1.8.0-openjdk-1.8.0.302.b08-0.amzn2.0.1.x86_64]# ls
+ASSEMBLY_EXCEPTION  bin  include  jre  lib  LICENSE  tapset  THIRD_PARTY_README
+
 which git
 /usr/bin/git
 
+check:
+cd /usr/bin/git
+-bash: cd: /usr/bin/git: Not a directory                      # its not a correct path of git so install using tar file 
+
+INSTALL GIT USING TAR FILE
+--------------------------
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+https://git-scm.com/download/linux
+select: linux
+https://www.kernel.org/pub/software/scm/git/git-2.34.1.tar.gz
+
+LOGIN TO JENKINS VM:
+--------------------
+wget https://www.kernel.org/pub/software/scm/git/git-2.34.1.tar.gz
+tar -xzf git-2.34.1.tar.gz
+
+
+git --version
+git version 2.32.0
 
 
 PIPELINE JOB CONFIGURATION:
