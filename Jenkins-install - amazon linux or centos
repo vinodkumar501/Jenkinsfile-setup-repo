@@ -7,12 +7,22 @@ Step1:
 yum update -y
 wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+OR
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install jenkins
+
+
 sudo yum upgrade
 sudo yum install jenkins java-1.8.0-openjdk-devel -y
 (Note: if above fails user below 3 steps)
 sudo yum install epel-release -y  (or)  sudo amazon-linux-extras install epel   ( for amazon linux )
 sudo yum install daemonize -y  
 sudo yum install jenkins java-1.8.0-openjdk-devel -y 
+
+
 
 
 sudo systemctl daemon-reload
