@@ -1,0 +1,35 @@
+================== nodejs appn ================
+npm install
+
+Example using npm
+This example installs the dependencies defined in the package.json file. For more information, see npm install.
+
+yarn install
+
+Example using Yarn
+This example installs the dependencies defined in the package.json file. For more information, see yarn install.
+
+https://linuxize.com/post/how-to-install-yarn-on-centos-7/
+install:
+
+=====
+https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs-or-python#example-using-npm
+
+
+Building and testing your code
+You can use the same commands that you use locally to build and test your code. For example, if you run npm run build to run build steps defined in your package.json file and npm test to run your test suite, you would add those commands in your workflow file.
+
+https://www.npmjs.com/package
+
+npm init
+
+npm i excel
+npm i express@4.17.0
+
+
+===================================
+
+install publish over ssh 
+
+yum install jenkins java-1.8.0-openjdk-devel -y
+
